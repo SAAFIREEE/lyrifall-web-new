@@ -1,9 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { fileURLToPath } from "url";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [react()],
@@ -13,7 +10,7 @@ export default defineConfig({
     },
   },
   build: {
-    // This helps Vercel find files more reliably
+    // Force the entry point to be the index.html in your root folder
     rollupOptions: {
       input: {
         main: "./index.html",
